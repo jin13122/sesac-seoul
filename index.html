@@ -35,6 +35,8 @@
     
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
     
     body {
@@ -45,6 +47,11 @@
       -webkit-font-smoothing: antialiased;
       padding-bottom: 90px;
       overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    section {
+      scroll-margin-top: 80px;
     }
     
     a {
@@ -91,316 +98,438 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
+    
     .top-badge {
-      background: #10b981;
-      color: #090d16;
+      background: var(--primary);
+      color: #022c22;
+      font-weight: 800;
       padding: 2px 8px;
       border-radius: 9999px;
-      font-weight: 800;
       font-size: 11px;
     }
 
-    /* Global Navigation Header */
+    /* Header Nav */
     header {
-      background: rgba(9, 13, 22, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 50;
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
     }
+    
     .nav-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
+    
     .brand-logo {
       display: flex;
       align-items: center;
       gap: 8px;
+      font-weight: 800;
+      font-size: 17px;
     }
+    
     .badge-sesac {
-      background: #10b981;
-      color: #090d16;
-      font-weight: 900;
-      font-size: 13px;
-      padding: 4px 10px;
+      background-color: var(--primary);
+      color: #022c22;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
       border-radius: 6px;
     }
+    
     .badge-cross {
-      color: #64748b;
-      font-size: 13px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 300;
     }
+    
     .badge-mega {
+      color: var(--accent-sky);
       font-weight: 900;
-      font-size: 16px;
-      color: #38bdf8;
-      letter-spacing: -0.5px;
     }
+    
     .badge-mega span {
       color: #ffffff;
+      font-weight: 700;
     }
+
     .nav-links {
-      display: flex;
-      gap: 16px;
+      display: none;
       list-style: none;
+      align-items: center;
+      gap: 20px;
     }
+    
+    @media (min-width: 992px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+    
     .nav-links a {
-      font-size: 13.5px;
-      font-weight: 600;
       color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
       transition: color 0.2s;
     }
+    
     .nav-links a:hover {
       color: var(--primary);
     }
+
     .nav-cta-btn {
-      background: linear-gradient(135deg, #ff5722 0%, #ff7849 100%);
-      color: #ffffff !important;
-      font-size: 13.5px;
+      background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+      color: #ffffff;
       font-weight: 800;
-      padding: 9px 18px;
-      border-radius: 10px;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
-      transition: all 0.2s ease;
+      white-space: nowrap;
     }
+    
     .nav-cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(255, 87, 34, 0.45);
+      background: linear-gradient(135deg, var(--accent-orange-hover), #f97316);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.45);
     }
 
     /* Hero Section */
     .hero {
       position: relative;
-      background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.12) 0%, rgba(9, 13, 22, 1) 75%);
-      padding: 70px 0 90px;
+      padding: 80px 0 60px;
       text-align: center;
-      overflow: hidden;
+      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.12) 0%, rgba(9, 13, 22, 0) 70%);
       border-bottom: 1px solid var(--border-color);
     }
+    
     .hero-badge-wrap {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-light);
       padding: 6px 16px;
       border-radius: 9999px;
-      font-size: 13px;
-      color: #93c5fd;
+      font-size: 13.5px;
+      color: #cbd5e1;
       margin-bottom: 24px;
-      backdrop-filter: blur(8px);
     }
+    
     .hero-title {
-      font-size: 46px;
-      font-weight: 900;
-      letter-spacing: -1px;
+      font-size: 38px;
       line-height: 1.25;
-      margin-bottom: 14px;
-      color: #ffffff;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
     }
+    
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 54px;
+      }
+    }
+    
     .hero-title span {
-      background: linear-gradient(135deg, #34d399 0%, #38bdf8 50%, #818cf8 100%);
+      background: linear-gradient(135deg, #10b981 0%, #38bdf8 50%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .hero-sub {
-      font-size: 21px;
+      font-size: 20px;
+      color: #34d399;
       font-weight: 700;
-      color: #6ee7b7;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
+
     .hero-desc {
-      font-size: 15.5px;
-      color: #cbd5e1;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 36px;
-      line-height: 1.8;
-      word-break: keep-all;
+      font-size: 16px;
+      color: #cbd5e1;
+      line-height: 1.7;
     }
+    
+    .hero-desc strong {
+      color: #ffffff;
+    }
+
     .highlights-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto 36px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 860px;
+      margin: 0 auto 40px;
     }
+    
+    @media (min-width: 768px) {
+      .highlights-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    
     .highlight-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px 14px;
       border-radius: 18px;
-      padding: 20px 16px;
-      backdrop-filter: blur(10px);
-      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s;
     }
+    
     .highlight-card:hover {
-      background: rgba(15, 23, 42, 0.95);
-      border-color: rgba(16, 185, 129, 0.4);
-      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.06);
     }
+    
     .highlight-val {
       font-size: 22px;
       font-weight: 900;
-      color: #10b981;
+      color: var(--primary);
       margin-bottom: 4px;
     }
+    
+    .highlight-card:nth-child(3) .highlight-val,
+    .highlight-card:nth-child(4) .highlight-val {
+      color: var(--accent-sky);
+    }
+    
     .highlight-lbl {
-      font-size: 12.5px;
-      color: #cbd5e1;
-      font-weight: 500;
-    }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .btn-primary-lg {
-      background: linear-gradient(135deg, #ff5722 0%, #ff7849 100%);
-      color: #ffffff !important;
-      font-size: 16.5px;
-      font-weight: 900;
-      padding: 16px 36px;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(255, 87, 34, 0.4);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .btn-primary-lg:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(255, 87, 34, 0.55);
-    }
-    .btn-secondary-lg {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #ffffff;
-      font-size: 15.5px;
-      font-weight: 700;
-      padding: 16px 28px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .btn-secondary-lg:hover {
-      background: rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
     }
 
-    /* Course Overview Section */
-    section {
-      padding: 80px 0;
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
+    
+    @media (min-width: 640px) {
+      .hero-actions {
+        flex-direction: row;
+      }
+    }
+    
+    .btn-primary-lg {
+      width: 100%;
+      max-width: 320px;
+      background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 900;
+      padding: 16px 32px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(255, 87, 34, 0.35);
+      transition: all 0.2s ease;
+    }
+    
+    @media (min-width: 640px) {
+      .btn-primary-lg {
+        width: auto;
+      }
+    }
+    
+    .btn-primary-lg:hover {
+      background: linear-gradient(135deg, var(--accent-orange-hover), #f97316);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 87, 34, 0.45);
+    }
+
+    .btn-secondary-lg {
+      width: 100%;
+      max-width: 320px;
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    
+    @media (min-width: 640px) {
+      .btn-secondary-lg {
+        width: auto;
+      }
+    }
+    
+    .btn-secondary-lg:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Section Global */
+    section {
+      padding: 70px 0;
+    }
+    
     .section-header {
       text-align: center;
       max-width: 720px;
-      margin: 0 auto 50px;
+      margin: 0 auto 48px;
     }
-    .section-tag {
-      display: inline-block;
+    
+    .section-mono-tag {
       font-family: monospace;
-      font-size: 11.5px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    
+    .section-tag {
+      font-family: monospace;
+      font-size: 12px;
       font-weight: 800;
-      color: #10b981;
+      color: var(--primary);
       background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.2);
       padding: 4px 12px;
       border-radius: 9999px;
-      letter-spacing: 1px;
+      letter-spacing: 0.08em;
+      display: inline-block;
       margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 34px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-    .section-desc {
-      font-size: 15px;
-      color: #94a3b8;
-      line-height: 1.7;
-      word-break: keep-all;
     }
 
+    .section-title {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 36px;
+      }
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    /* Course Overview */
     .overview-grid {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 24px;
-      padding: 35px 40px;
+      padding: 24px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px 40px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      grid-template-columns: 1fr;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
+    
+    @media (min-width: 768px) {
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 36px;
+        gap: 24px;
+      }
+    }
+    
     .overview-item {
-      display: flex;
-      align-items: flex-start;
+      padding-bottom: 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding-bottom: 12px;
     }
+    
     .overview-label {
-      width: 100px;
-      color: #64748b;
-      font-weight: 600;
-      font-size: 13.5px;
-      flex-shrink: 0;
-    }
-    .overview-val {
-      font-size: 14.5px;
+      font-size: 13px;
+      color: var(--text-muted);
       font-weight: 700;
-      color: #f1f5f9;
-      line-height: 1.5;
+      margin-bottom: 4px;
     }
-    .single-line-address {
-      white-space: nowrap;
-      overflow-x: auto;
+    
+    .overview-value {
+      font-size: 15px;
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+    
+    .overview-value strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+    
+    .highlight-text {
+      color: #fb923c;
+      font-weight: 800;
     }
 
-    /* MSP Intro Section */
-    .section-mono-tag {
-      font-family: monospace;
-      font-size: 13px;
-      color: #10b981;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 8px;
-    }
+    /* MSP Intro 4 Cards */
     .msp-intro-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
+    
+    @media (min-width: 768px) {
+      .msp-intro-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+    
     .msp-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 32px 28px;
+      padding: 28px;
       transition: all 0.25s ease;
     }
+    
     .msp-card:hover {
-      border-color: rgba(16, 185, 129, 0.45);
-      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
     }
+    
     .msp-card-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-family: monospace;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #10b981;
-      margin-bottom: 14px;
+      justify-content: space-between;
+      margin-bottom: 16px;
     }
+    
+    .msp-card-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-sky);
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
+    
     .msp-card-title {
       font-size: 19px;
       font-weight: 800;
@@ -408,48 +537,90 @@
       margin-bottom: 12px;
       line-height: 1.4;
     }
+    
     .msp-card-desc {
-      font-size: 14px;
-      color: #94a3b8;
+      font-size: 14.5px;
+      color: #cbd5e1;
       line-height: 1.7;
-      word-break: keep-all;
     }
 
-    /* Opportunity 3 Boxes */
+    /* Opportunity 3 Cards */
     .opportunity-3grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 24px;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
+    
+    @media (min-width: 768px) {
+      .opportunity-3grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+    
     .opp-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 28px 24px;
-      transition: all 0.2s ease;
+      padding: 28px;
     }
-    .opp-card:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-    }
+    
     .opp-num {
-      font-family: monospace;
-      font-size: 24px;
+      font-size: 13px;
       font-weight: 900;
-      color: #38bdf8;
+      color: var(--primary);
+      font-family: monospace;
       margin-bottom: 12px;
     }
+    
     .opp-title {
-      font-size: 17.5px;
+      font-size: 18px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
+    
     .opp-desc {
-      font-size: 13.5px;
-      color: #94a3b8;
-      line-height: 1.65;
-      word-break: keep-all;
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    /* Green Gradient Featured Box */
+    .gradient-featured-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(56, 189, 248, 0.1) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    
+    .gradient-box-badge {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    
+    .gradient-box-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    
+    .gradient-box-desc {
+      font-size: 15px;
+      color: #cbd5e1;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
     /* 5 Reasons */
@@ -457,277 +628,290 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
     }
+    
     .reason-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 28px 30px;
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
+      padding: 24px 28px;
       transition: all 0.25s ease;
     }
+    
     .reason-card:hover {
-      border-color: rgba(16, 185, 129, 0.5);
+      border-color: rgba(16, 185, 129, 0.4);
       background: var(--bg-card-hover);
     }
-    .reason-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #10b981;
+    
+    .reason-meta {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    
+    .reason-meta-bar {
+      width: 4px;
+      height: 14px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .reason-category {
+      font-size: 12px;
+      font-weight: 800;
       font-family: monospace;
-      font-size: 18px;
-      font-weight: 900;
-      flex-shrink: 0;
+      color: var(--primary);
     }
-    .reason-content {
-      flex: 1;
-    }
+    
     .reason-tagline {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #38bdf8;
-      margin-bottom: 4px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
     }
+    
     .reason-title {
       font-size: 19px;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 8px;
     }
+    
     .reason-desc {
-      font-size: 14px;
-      color: #94a3b8;
-      line-height: 1.65;
+      font-size: 14.5px;
+      color: #cbd5e1;
+      line-height: 1.6;
       margin-bottom: 14px;
-      word-break: keep-all;
     }
+    
     .reason-tags {
       display: flex;
-      gap: 6px;
       flex-wrap: wrap;
-    }
-    .reason-tag-pill {
-      background: #090d16;
-      border: 1px solid var(--border-color);
-      color: #cbd5e1;
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 6px;
-    }
-
-    /* Curriculum Tabs */
-    .curriculum-tabs {
-      display: flex;
-      justify-content: center;
       gap: 8px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
     }
-    .tab-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: #94a3b8;
-      font-size: 13.5px;
+    
+    .tech-pill {
+      font-size: 12px;
       font-weight: 700;
-      padding: 10px 18px;
-      border-radius: 12px;
-      transition: all 0.2s;
-    }
-    .tab-btn.active {
-      background: #10b981;
-      border-color: #10b981;
-      color: #090d16;
-      font-weight: 900;
-    }
-    .curriculum-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      padding: 36px 40px;
-      margin-bottom: 40px;
-    }
-    .step-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .step-pill {
-      background: rgba(16, 185, 129, 0.15);
-      color: #10b981;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 800;
-      font-family: monospace;
-    }
-    .step-weeks {
-      background: #090d16;
-      border: 1px solid var(--border-color);
       color: #cbd5e1;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .step-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-    }
-    .step-desc {
-      font-size: 15px;
-      color: #94a3b8;
-      margin-bottom: 24px;
-      line-height: 1.7;
-      word-break: keep-all;
-    }
-    .topics-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      list-style: none;
-    }
-    .topic-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13.5px;
-      color: #e2e8f0;
-      background: #090d16;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-    }
-    .topic-item::before {
-      content: '✓';
-      color: #10b981;
-      font-weight: 900;
-      font-size: 15px;
-      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 10px;
+      border-radius: 8px;
     }
 
-    /* Tech Stack */
+    /* Tech Stack Cards */
     .tech-stack-list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 14px;
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
     }
+    
+    @media (min-width: 640px) {
+      .tech-stack-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .tech-stack-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
     .tech-stack-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 22px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      transition: all 0.2s ease;
+      padding: 22px;
     }
-    .tech-stack-card:hover {
-      border-color: rgba(16, 185, 129, 0.4);
-    }
+    
     .tech-cat-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
+    
     .tech-cat-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #10b981;
-      font-size: 18px;
+      font-size: 20px;
     }
+    
     .tech-cat-name {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
       color: #ffffff;
     }
+    
     .tech-pills-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
+    
     .tech-pill-dark {
-      background: #090d16;
-      color: #cbd5e1;
-      border: 1px solid var(--border-color);
-      font-family: monospace;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-light);
+      color: #38bdf8;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 4px 10px;
       border-radius: 8px;
     }
 
-    /* Roadmap Steps */
-    .roadmap-list {
-      display: flex;
-      flex-direction: column;
+    /* Growth Roadmap 4 Steps */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 820px;
-      margin: 0 auto;
     }
+    
+    @media (min-width: 640px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
     .roadmap-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      transition: all 0.2s ease;
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
     }
-    .roadmap-card:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-    }
-    .roadmap-num {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #38bdf8;
-      font-family: monospace;
+    
+    .roadmap-step-pill {
+      font-size: 12px;
       font-weight: 900;
-      font-size: 17px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      color: var(--primary);
+      font-family: monospace;
+      margin-bottom: 10px;
+      display: inline-block;
     }
+    
     .roadmap-title {
-      font-size: 17.5px;
+      font-size: 17px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
+    
     .roadmap-desc {
-      font-size: 14px;
-      color: #94a3b8;
+      font-size: 13.5px;
+      color: #cbd5e1;
       line-height: 1.6;
-      word-break: keep-all;
+    }
+
+    /* Curriculum Tabs */
+    .curriculum-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
+    }
+    
+    .curriculum-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .curr-tab-btn {
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    
+    .curr-tab-btn.active {
+      color: #ffffff;
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--primary);
+    }
+    
+    .curriculum-content-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .step-pill {
+      background: var(--primary);
+      color: #022c22;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    
+    .step-weeks {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .step-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      width: 100%;
+      margin-top: 4px;
+    }
+    
+    .step-desc {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    
+    .topics-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    
+    .topic-item::before {
+      content: "✔";
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 14px;
+      margin-top: 1px;
     }
 
     /* Syllabus Table */
@@ -735,535 +919,582 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 24px;
-      padding: 36px 32px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      padding: 28px;
     }
+    
     .syllabus-header {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
+    
     .syllabus-table {
       width: 100%;
       border-collapse: collapse;
-      text-align: left;
       font-size: 14px;
     }
+    
     .syllabus-table th {
-      padding: 14px 18px;
-      font-size: 12.5px;
-      font-weight: 800;
+      background: rgba(15, 23, 42, 0.9);
       color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 2px solid var(--border-color);
-      background: rgba(9, 13, 22, 0.5);
+      font-weight: 700;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
     }
+    
     .syllabus-table td {
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       color: #cbd5e1;
     }
+    
     .syllabus-cat-td {
       font-weight: 800;
-      color: #10b981;
-      vertical-align: middle;
-      border-right: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(16, 185, 129, 0.03);
+      color: #38bdf8;
+      vertical-align: top;
+      background: rgba(255, 255, 255, 0.01);
     }
+    
     .syllabus-subj-td {
-      font-weight: 600;
       color: #f1f5f9;
+      font-weight: 500;
     }
+    
     .syllabus-hour-td {
       text-align: right;
       font-family: monospace;
+      color: var(--primary);
       font-weight: 700;
-      color: #94a3b8;
-    }
-    .syllabus-footer-row td {
-      background: rgba(9, 13, 22, 0.8);
-      padding: 16px 18px;
-      border-top: 2px solid var(--border-color);
-    }
-    .total-badge {
-      display: inline-block;
-      background: #10b981;
-      color: #090d16;
-      font-family: monospace;
-      font-size: 14px;
-      font-weight: 900;
-      padding: 4px 12px;
-      border-radius: 9999px;
     }
 
-    /* Projects Detailed List */
-    .projects-list {
-      display: flex;
-      flex-direction: column;
+    /* Projects Grid */
+    .projects-3grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 20px;
-      max-width: 820px;
-      margin: 0 auto;
     }
+    
+    @media (min-width: 768px) {
+      .projects-3grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 30px 32px;
-      transition: all 0.25s ease;
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
     }
+    
     .project-card.highlight {
-      border: 2px solid #10b981;
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.12);
+      border-color: rgba(56, 189, 248, 0.5);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(14, 116, 144, 0.15) 100%);
     }
-    .project-card:hover {
-      transform: translateY(-2px);
-    }
+    
     .project-badge-tag {
-      font-family: monospace;
       font-size: 12px;
-      font-weight: 700;
-      color: #10b981;
-      display: inline-block;
-      margin-bottom: 8px;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: monospace;
+      margin-bottom: 10px;
     }
-    .project-card.highlight .project-badge-tag {
-      color: #34d399;
-    }
+    
     .project-card-title {
-      font-size: 22px;
-      font-weight: 900;
+      font-size: 19px;
+      font-weight: 800;
       color: #ffffff;
-      margin-bottom: 18px;
-      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1.35;
     }
+    
     .project-bullets-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-top: auto;
     }
+    
     .project-bullet-item {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14.5px;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13.5px;
       color: #cbd5e1;
+      line-height: 1.5;
     }
+    
     .project-arrow {
-      color: #10b981;
+      color: var(--primary);
       font-weight: 900;
-      font-size: 16px;
     }
 
-    /* Benefits Highlight Box */
+    /* Benefits Highlights Checkmark Box */
     .benefits-highlight-card {
-      background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #10b981 100%);
-      color: #090d16;
+      background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+      color: #022c22;
       border-radius: 24px;
-      padding: 32px 36px;
-      max-width: 800px;
+      padding: 30px;
+      max-width: 820px;
       margin: 0 auto 36px;
-      box-shadow: 0 12px 35px rgba(16, 185, 129, 0.25);
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 14px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.25);
     }
+    
+    @media (min-width: 640px) {
+      .benefits-highlight-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 24px;
+      }
+    }
+    
     .benefits-check-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 18px;
+      gap: 10px;
       font-weight: 900;
-      letter-spacing: -0.3px;
-    }
-    .benefits-check-item span:first-child {
-      font-size: 20px;
-      font-weight: 900;
+      font-size: 16px;
+      color: #022c22;
     }
 
+    /* Benefits 6 Grid */
     .benefits-6grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 16px;
       max-width: 900px;
       margin: 0 auto;
     }
+    
+    @media (min-width: 640px) {
+      .benefits-6grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
     .benefit-item-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      padding: 22px 24px;
+      border-radius: 20px;
+      padding: 24px;
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      transition: all 0.2s ease;
     }
-    .benefit-item-card:hover {
-      border-color: rgba(16, 185, 129, 0.4);
-    }
+    
     .benefit-num {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #090d16;
-      border: 1px solid var(--border-color);
-      color: #10b981;
-      font-family: monospace;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(2, 6, 23, 0.8);
+      border: 1px solid var(--border-light);
+      color: var(--primary);
       font-weight: 900;
+      font-family: monospace;
       font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
+    
     .benefit-item-title {
       font-size: 16px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
+    
     .benefit-tag-pill {
       font-size: 10.5px;
-      font-weight: 700;
-      color: #10b981;
+      color: var(--primary);
       background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 2px 8px;
-      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 2px 6px;
+      border-radius: 6px;
     }
+    
     .benefit-item-desc {
       font-size: 13px;
       color: #94a3b8;
-      line-height: 1.6;
-      word-break: keep-all;
+      line-height: 1.55;
     }
 
-    /* Reviews List (수강후기 가로형 1열 카드 레이아웃) */
+    /* Student Reviews */
     .reviews-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      max-width: 900px;
+      gap: 16px;
+      max-width: 880px;
       margin: 0 auto;
     }
+    
     .review-card-horizontal {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 24px 28px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 28px;
-      transition: all 0.25s ease;
-    }
-    .review-card-horizontal:hover {
-      transform: translateY(-2px);
-      border-color: rgba(16, 185, 129, 0.45);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-    .review-meta {
-      width: 210px;
-      flex-shrink: 0;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-      padding-right: 20px;
+      gap: 16px;
+      transition: all 0.25s ease;
     }
+    
+    @media (min-width: 768px) {
+      .review-card-horizontal {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 28px;
+      }
+    }
+    
+    .review-card-horizontal:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: var(--bg-card-hover);
+    }
+    
+    .review-meta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .review-meta {
+        width: 190px;
+        flex-shrink: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 0;
+        padding-right: 20px;
+      }
+    }
+    
     .review-author {
-      font-size: 15.5px;
+      font-size: 15px;
       font-weight: 800;
       color: #ffffff;
+      margin-bottom: 4px;
     }
+    
     .review-stars {
       color: #f59e0b;
       font-size: 13px;
-      letter-spacing: 2px;
+      margin-bottom: 8px;
     }
+    
     .review-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #10b981;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 3px 8px;
-      border-radius: 4px;
+      font-size: 10.5px;
       font-weight: 700;
-      font-size: 11px;
-      width: fit-content;
-      margin-top: 4px;
+      color: var(--primary);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 2px 8px;
+      border-radius: 6px;
+      display: inline-block;
     }
+    
     .review-body {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
+    
     .review-quote {
-      font-size: 14px;
+      font-size: 14.5px;
       color: #cbd5e1;
       line-height: 1.7;
-      word-break: keep-all;
     }
+    
     .review-footer-track {
-      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
       text-align: right;
-      font-size: 11.5px;
-      color: #64748b;
     }
 
     /* Timeline Process */
     .timeline-container {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
+    
+    @media (min-width: 640px) {
+      .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .timeline-container {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    
     .timeline-step {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      padding: 28px 16px;
+      border-radius: 20px;
+      padding: 24px 16px;
       text-align: center;
-      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .timeline-step:hover {
-      border-color: rgba(16, 185, 129, 0.3);
-    }
+    
     .timeline-num {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
       background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #10b981;
+      color: var(--primary);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 900;
+      font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 15px;
-      margin: 0 auto 14px;
-      font-family: monospace;
+      margin-bottom: 12px;
     }
+    
     .timeline-title {
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
+    
     .timeline-desc {
       font-size: 12.5px;
       color: #94a3b8;
-      line-height: 1.5;
-      word-break: keep-all;
+      line-height: 1.6;
     }
 
-    /* Campus Info Box */
+    /* Campus Box */
     .campus-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      color: white;
       border-radius: 24px;
-      padding: 50px 40px;
-      margin: 40px 0;
-    }
-    .campus-inner {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      align-items: center;
-    }
-
-    /* FAQ Accordion */
-    .faq-container {
-      max-width: 800px;
+      padding: 36px;
+      max-width: 960px;
       margin: 0 auto;
     }
+    
+    .campus-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .campus-inner {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    /* FAQ */
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
     .faq-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 16px;
-      margin-bottom: 12px;
+      border-radius: 18px;
       overflow: hidden;
-      transition: all 0.2s;
     }
+    
     .faq-question {
       width: 100%;
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 20px 24px;
       text-align: left;
       font-size: 15.5px;
       font-weight: 700;
-      color: #f1f5f9;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
     }
-    .faq-item.active .faq-question {
-      color: #10b981;
-    }
+    
     .faq-icon {
-      font-size: 20px;
-      color: #64748b;
-      transition: transform 0.2s ease;
+      font-size: 18px;
+      color: var(--primary);
+      transition: transform 0.2s;
     }
+    
     .faq-item.active .faq-icon {
       transform: rotate(45deg);
-      color: #10b981;
     }
+    
     .faq-answer {
       display: none;
-      padding: 0 24px 20px;
-      font-size: 14px;
-      color: #94a3b8;
+      padding: 0 24px 22px;
+      font-size: 14.5px;
+      color: #cbd5e1;
       line-height: 1.7;
-      border-top: 1px solid var(--border-color);
-      word-break: keep-all;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 16px;
     }
+    
     .faq-item.active .faq-answer {
       display: block;
     }
 
-    /* Final CTA Banner */
+    /* Final CTA */
     .final-cta {
-      background: linear-gradient(135deg, #090d16 0%, #0d1e38 50%, #090d16 100%);
-      border: 1px solid var(--border-color);
-      color: white;
-      text-align: center;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 27, 75, 0.8) 100%);
+      border: 1px solid var(--border-light);
       border-radius: 28px;
-      padding: 65px 30px;
-      margin-top: 40px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      padding: 48px 24px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
+    
     .final-cta-badge {
-      display: inline-block;
-      font-family: monospace;
       font-size: 12px;
       font-weight: 800;
-      color: #10b981;
-      background: rgba(16, 185, 129, 0.1);
+      color: var(--primary);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 4px 14px;
       border-radius: 9999px;
+      display: inline-block;
       margin-bottom: 16px;
     }
+    
     .final-cta h2 {
-      font-size: 32px;
+      font-size: 26px;
       font-weight: 900;
+      color: #ffffff;
       margin-bottom: 16px;
-      letter-spacing: -0.5px;
       line-height: 1.35;
     }
+    
+    @media (min-width: 768px) {
+      .final-cta h2 {
+        font-size: 38px;
+      }
+    }
+    
     .final-cta p {
-      font-size: 16px;
+      font-size: 15.5px;
       color: #cbd5e1;
       max-width: 680px;
       margin: 0 auto 32px;
-      line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    /* Sticky Bottom Action Bar */
-    .sticky-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(9, 13, 22, 0.95);
-      backdrop-filter: blur(14px);
-      border-top: 1px solid var(--border-color);
-      padding: 14px 20px;
-      z-index: 999;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
-    }
-    .sticky-content {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .sticky-title {
-      font-weight: 800;
-      font-size: 14.5px;
-      color: #f8fafc;
-    }
-    .sticky-sub {
-      font-size: 12px;
-      color: #64748b;
-    }
-    .sticky-btn-apply {
-      background: linear-gradient(135deg, #ff5722 0%, #ff7849 100%);
-      color: #ffffff !important;
-      font-size: 14.5px;
-      font-weight: 800;
-      padding: 11px 26px;
-      border-radius: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
-      transition: all 0.2s ease;
-    }
-    .sticky-btn-apply:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.55);
+      line-height: 1.7;
     }
 
     /* Footer */
     footer {
-      background: #060910;
-      color: #64748b;
-      padding: 40px 0;
-      font-size: 13px;
       border-top: 1px solid var(--border-color);
-      margin-top: 60px;
+      background: #040711;
+      color: var(--text-muted);
+      font-size: 13px;
+      padding: 36px 0;
     }
+    
     .footer-content {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
 
-    /* Responsive Queries */
-    @media (max-width: 1024px) {
-      .hero-title { font-size: 34px; }
-      .highlights-grid { grid-template-columns: repeat(2, 1fr); }
-      .opportunity-3grid { grid-template-columns: 1fr; }
-      .timeline-container { grid-template-columns: repeat(3, 1fr); }
-      .campus-inner { grid-template-columns: 1fr; }
+    /* Sticky Bottom Apply Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(9, 13, 22, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border-color);
+      padding: 12px 20px;
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero { padding: 50px 0 70px; }
-      .hero-title { font-size: 28px; }
-      .hero-sub { font-size: 18px; }
-      .hero-desc { font-size: 14px; }
-      .overview-grid { grid-template-columns: 1fr; padding: 20px; }
-      .msp-intro-grid { grid-template-columns: 1fr; }
-      .topics-list { grid-template-columns: 1fr; }
-      .benefits-6grid { grid-template-columns: 1fr; }
-      .reviews-list { gap: 14px; }
-      .review-card-horizontal {
-        flex-direction: column;
-        gap: 14px;
-        padding: 20px;
+    
+    .sticky-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    
+    .sticky-info {
+      display: none;
+    }
+    
+    @media (min-width: 640px) {
+      .sticky-info {
+        display: block;
       }
-      .review-meta {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding-right: 0;
-        padding-bottom: 12px;
+    }
+    
+    .sticky-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    
+    .sticky-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .sticky-btn-apply {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 14.5px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+    }
+    
+    @media (min-width: 640px) {
+      .sticky-btn-apply {
+        width: auto;
       }
-      .timeline-container { grid-template-columns: 1fr; }
-      .sticky-title, .sticky-sub { display: none; }
-      .sticky-btn-apply { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -1272,7 +1503,7 @@
   <!-- 상단 공지 배너 -->
   <div class="top-bar">
     <span class="top-badge">선착순 모집</span>
-    <span>서울시 청년취업사관학교 SeSAC x 메가존클라우드 Enterprise AI Cloud MSP 정예 과정</span>
+    <span>서울시 청년취업사관학교 SeSAC x 메가존클라우드 Enterprise AI Cloud MSP 과정</span>
   </div>
 
   <!-- 상단 네비게이션 헤더 -->
@@ -1309,7 +1540,7 @@
   <section class="hero">
     <div class="container hero-content reveal-on-scroll">
       <div class="hero-badge-wrap">
-        <span>🏢 청년취업사관학교 SeSAC x 메가존클라우드 채용연계과정</span>
+        <span>🏢 청년취업사관학교 SeSAC x 메가존클라우드 교육과정</span>
       </div>
 
       <h1 class="hero-title">
@@ -1319,7 +1550,7 @@
       <p class="hero-sub">Enterprise AI Cloud MSP 엔지니어 양성과정</p>
       
       <p class="hero-desc">
-        국내 1위 클라우드 MSP 기업 <strong>메가존클라우드</strong>와 함께하는 실전 채용 연계형 정예 과정!<br />
+        국내 1위 클라우드 MSP 기업 <strong>메가존클라우드</strong>와 함께하는 실전 클라우드 엔지니어 과정!<br />
         AWS 중심의 클라우드 인프라 구축·운영 역량을 탄탄하게 다지고,<br />
         생성형 AI, RAG, Terraform, Kubernetes, AIOps까지 완벽 마스터합니다.
       </p>
@@ -1335,8 +1566,8 @@
           <div class="highlight-lbl">국민내일배움카드 사용X</div>
         </div>
         <div class="highlight-card">
-          <div class="highlight-val">채용 연계</div>
-          <div class="highlight-lbl">메가존 TalentBridge (MTP)</div>
+          <div class="highlight-val">AWS 실습비</div>
+          <div class="highlight-lbl">콘솔 실습비 전폭 지원</div>
         </div>
         <div class="highlight-card">
           <div class="highlight-val">AI 구독 지원</div>
@@ -1344,7 +1575,7 @@
         </div>
       </div>
 
-      <!-- 상담신청 액션 버튼 (새창 링크) -->
+      <!-- 상담신청 액션 버튼 -->
       <div class="hero-actions">
         <a href="https://naver.me/GwflJ8WC" target="_blank" rel="noopener noreferrer" class="btn-primary-lg">
           <span>🚀 지금 바로 상담신청하기</span>
@@ -1363,46 +1594,46 @@
       <div class="overview-grid">
         <div class="overview-item">
           <div class="overview-label">교육과정명</div>
-          <div class="overview-val">Enterprise AI Cloud MSP 엔지니어 양성과정</div>
+          <div class="overview-value"><strong>Enterprise AI Cloud MSP 엔지니어 양성과정</strong></div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">파트너기업</div>
-          <div class="overview-val" style="color: #38bdf8;">메가존클라우드 (MegazoneCloud)</div>
+          <div class="overview-label">파트너 기업</div>
+          <div class="overview-value"><strong style="color: #38bdf8;">메가존클라우드 (MegazoneCloud)</strong></div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">지원자격</div>
-          <div class="overview-val">
+          <div class="overview-label">지원 자격</div>
+          <div class="overview-value">
             만 15세 이상 서울 시민 및 거주자<br />
-            <span style="font-size: 13px; color: #94a3b8; font-weight: 500;">(취업 의지가 확고한 미취업자 및 졸업예정자, 전공무관)</span>
+            <span style="font-size: 13px; color: var(--text-muted);">(취업 의지가 확고한 미취업자 및 졸업예정자, 전공무관)</span>
           </div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">선발인원</div>
-          <div class="overview-val" style="color: #fb923c;">30명 정예 선발</div>
+          <div class="overview-label">모집 인원</div>
+          <div class="overview-value"><span class="highlight-text">24명 (선발 면접 진행)</span></div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">교육기간</div>
-          <div class="overview-val">2026. 11. 17(월) ~ 2027. 05. 14(금) [약 6개월, 115일]</div>
+          <div class="overview-label">교육 기간</div>
+          <div class="overview-value">2026. 12. 07 ~ 2027. 06. 07 [약 6개월, 115일]</div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">교육시간</div>
-          <div class="overview-val">
-            월~금 09:00 ~ 18:00<br />
-            <span style="font-size: 13px; color: #94a3b8; font-weight: 500;">(1일 8시간, 주 5일 전일제 대면 교육)</span>
+          <div class="overview-label">교육 시간</div>
+          <div class="overview-value">
+            월~금 09:30 ~ 17:30<br />
+            <span style="font-size: 13px; color: var(--text-muted);">(1일 7시간, 주 5일 전일제 대면 교육)</span>
           </div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">교육장소</div>
-          <div class="overview-val">
-            새싹(SeSAC) 영등포 캠퍼스<br />
-            <span class="single-line-address" style="font-size: 13px; color: #94a3b8; font-weight: 500;">(서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층)</span>
+          <div class="overview-label">교육 비용</div>
+          <div class="overview-value">
+            <strong>전액 무료 (0원)</strong><br />
+            <span style="font-size: 13px; color: var(--text-muted);">서울시 100% 전액 지원 (예치금 20만원 납부 후 수료 시 100% 전액 환급)</span>
           </div>
         </div>
         <div class="overview-item">
-          <div class="overview-label">수강비용</div>
-          <div class="overview-val" style="color: #10b981;">
-            전액 무료 (서울시 지원 국비 무료교육)<br />
-            <span style="font-size: 12px; color: #94a3b8; font-weight: 500;">*예치금 20만원 (수료 시 100% 전액 환급)</span>
+          <div class="overview-label">교육 장소</div>
+          <div class="overview-value">
+            <strong>새싹(SeSAC) 영등포 캠퍼스</strong><br />
+            <span class="single-line-address" style="font-size: 13px; color: var(--text-muted); white-space: nowrap;">서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층</span>
           </div>
         </div>
       </div>
@@ -1410,71 +1641,100 @@
   </section>
 
   <!-- 클라우드 MSP 직무 및 비전 소개 -->
-  <section id="msp-intro" style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <section id="msp-intro">
     <div class="container reveal-on-scroll">
       <div class="section-header">
         <span class="section-mono-tag">// 코딩 천재만 IT 기업에 가는 건 아닙니다.</span>
         <h2 class="section-title">
           기업의 온라인 건물을 관리하는<br><span style="white-space: nowrap;">클라우드 MSP로 IT 커리어를 시작하세요.</span>
         </h2>
-        <p class="section-desc">AI를 직접 만들지 않아도 됩니다. 기업들이 AI를 쓸 수 있게 '판'을 깔아주는 엔지니어가 더 귀한 시대니까요.</p>
+        <p class="section-desc">
+          AI를 직접 만들지 않아도 됩니다. 기업들이 AI를 쓸 수 있게 '판'을 깔아주는 엔지니어가 더 귀한 시대니까요.
+        </p>
       </div>
 
       <div class="msp-intro-grid">
         <div class="msp-card reveal-on-scroll">
           <div class="msp-card-header">
-            <span>01 / CLOUD MSP</span>
+            <span class="msp-card-tag">01 / CLOUD MSP</span>
           </div>
-          <h3 class="msp-card-title">클라우드 MSP는<br>어떤 일을 하나요?</h3>
-          <p class="msp-card-desc">기업이 빌려 쓰는 클라우드를 '온라인 건물'이라고 생각해 보세요. 클라우드 MSP 엔지니어는 기업에 맞게 이 공간을 설계하고 구축하며, 서비스가 안정적으로 돌아가도록 운영하는 전문가입니다.</p>
+          <h3 class="msp-card-title">클라우드 MSP는 어떤 일을 하나요?</h3>
+          <p class="msp-card-desc">
+            기업이 빌려 쓰는 클라우드를 '온라인 건물'이라고 생각해 보세요. 클라우드 MSP 엔지니어는 기업에 맞게 이 공간을 설계하고 구축하며, 서비스가 안정적으로 돌아가도록 운영하는 전문가입니다.
+          </p>
         </div>
 
         <div class="msp-card reveal-on-scroll">
           <div class="msp-card-header">
-            <span>02 / YOUR STRENGTH</span>
+            <span class="msp-card-tag">02 / YOUR STRENGTH</span>
           </div>
-          <h3 class="msp-card-title">비전공자·문과생의 강점이<br>빛나는 이유</h3>
-          <p class="msp-card-desc">클라우드 MSP는 고객의 요구를 이해하고, 필요한 시스템을 기획하며, 여러 팀과 협업하는 직무입니다. 비전공자·문과생이 쌓아온 기획력과 소통 능력은 이 과정에서 유리하게 작용할 수 있습니다. 여기에 클라우드 기술을 더하면, 기존의 강점을 실무 경쟁력으로 연결할 수 있습니다.</p>
+          <h3 class="msp-card-title">비전공자·문과생의 강점이 빛나는 이유</h3>
+          <p class="msp-card-desc">
+            클라우드 MSP는 고객의 요구를 이해하고, 필요한 시스템을 기획하며, 여러 팀과 협업하는 직무입니다. 비전공자·문과생이 쌓아온 기획력과 소통 능력은 이 과정에서 유리하게 작용할 수 있습니다. 여기에 클라우드 기술을 더하면, 기존의 강점을 실무 경쟁력으로 연결할 수 있습니다.
+          </p>
         </div>
 
         <div class="msp-card reveal-on-scroll">
           <div class="msp-card-header">
-            <span>03 / FIND YOUR FIT</span>
+            <span class="msp-card-tag">03 / FIND YOUR FIT</span>
           </div>
-          <h3 class="msp-card-title">개발 공부에서<br>막막함을 느꼈다면</h3>
-          <p class="msp-card-desc">코드를 작성하는 것만이 IT 커리어의 전부는 아닙니다. 서버와 네트워크를 연결하고, 서비스가 움직이는 구조를 설계하는 일에 흥미가 있다면 클라우드 인프라에서 자신의 적성을 발견해 보세요.</p>
+          <h3 class="msp-card-title">개발 공부에서 막막함을 느꼈다면</h3>
+          <p class="msp-card-desc">
+            코드를 작성하는 것만이 IT 커리어의 전부는 아닙니다. 서버와 네트워크를 연결하고, 서비스가 움직이는 구조를 설계하는 일에 흥미가 있다면 클라우드 인프라에서 자신의 적성을 발견해 보세요.
+          </p>
         </div>
 
         <div class="msp-card reveal-on-scroll">
           <div class="msp-card-header">
-            <span>04 / NEXT CAREER</span>
+            <span class="msp-card-tag">04 / NEXT CAREER</span>
           </div>
-          <h3 class="msp-card-title">IT 취업을 꿈꾼다면<br>실무 기술을 내 것으로</h3>
-          <p class="msp-card-desc">무엇부터 준비해야 할지 고민이라면, 직접 구축하고 운영할 수 있는 기술부터 시작하세요. 클라우드 기초부터 AI 운영 프로젝트까지, 배운 내용을 결과물로 보여 주는 취업 준비를 무료로 시작할 수 있습니다.</p>
+          <h3 class="msp-card-title">IT 취업을 꿈꾼다면 실무 기술을 내 것으로</h3>
+          <p class="msp-card-desc">
+            무엇부터 준비해야 할지 고민이라면, 직접 구축하고 운영할 수 있는 기술부터 시작하세요. 클라우드 기초부터 AI 운영 프로젝트까지, 배운 내용을 결과물로 보여 주는 취업 준비를 무료로 시작할 수 있습니다.
+          </p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 기회 3선 -->
-      <div style="margin-top: 60px;">
-        <div class="section-header" style="margin-bottom: 30px;">
-          <h3 class="section-title" style="font-size: 26px;">IT 취업의 다음 기회,<br>클라우드 MSP에서 찾으세요.</h3>
+  <!-- IT 취업의 다음 기회, 클라우드 MSP에서 찾으세요 -->
+  <section id="msp-opportunity" style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container reveal-on-scroll">
+      <div class="section-header">
+        <h2 class="section-title">IT 취업의 다음 기회,<br>클라우드 MSP에서 찾으세요.</h2>
+      </div>
+
+      <div class="gradient-featured-box reveal-on-scroll">
+        <span class="gradient-box-badge">그 시작을 함께할 교육</span>
+        <h3 class="gradient-box-title">Enterprise AI Cloud MSP 엔지니어 양성과정</h3>
+        <p class="gradient-box-desc">
+          AWS 중심의 클라우드 인프라 구축·운영 역량을 탄탄하게 다지고, 생성형 AI와 RAG 기반 지식검색, 운영 자동화, MLOps·AIOps까지 단계적으로 연결합니다. 클라우드와 AI를 함께 다루는 실무형 엔지니어, 이 교육에서 준비하세요.
+        </p>
+      </div>
+
+      <div class="opportunity-3grid">
+        <div class="opp-card reveal-on-scroll">
+          <div class="opp-num">01</div>
+          <h4 class="opp-title">차세대 클라우드 인재 도약</h4>
+          <p class="opp-desc">
+            클라우드 인프라를 관리하는 데서 한 걸음 더 나아가, AI로 운영 효율을 높이는 역량을 기릅니다. 인프라 설계는 물론 AI를 활용한 장애 분석, 운영 자동화, 서비스 고도화까지 익히며 기업의 실무 과제를 해결하는 엔지니어로 성장합니다.
+          </p>
         </div>
-        <div class="opportunity-3grid">
-          <div class="opp-card reveal-on-scroll">
-            <div class="opp-num">01</div>
-            <h4 class="opp-title">차세대 클라우드 인재 도약</h4>
-            <p class="opp-desc">클라우드 인프라를 관리하는 데서 한 걸음 더 나아가, AI로 운영 효율을 높이는 역량을 기릅니다. 인프라 설계는 물론 AI를 활용한 장애 분석, 운영 자동화, 서비스 고도화까지 익히며 기업의 실무 과제를 해결하는 엔지니어로 성장합니다.</p>
-          </div>
-          <div class="opp-card reveal-on-scroll">
-            <div class="opp-num">02</div>
-            <h4 class="opp-title">현업 최신 기술 스택 총망라</h4>
-            <p class="opp-desc">클라우드 MSP 엔지니어의 기본인 Linux, Network, AWS부터 서비스 플랫폼 운영에 필요한 Docker, Kubernetes, Terraform(IaC), CI/CD까지. 기초 인프라와 배포·운영 기술을 체계적으로 연결해 현업에서 활용할 실무 역량을 쌓습니다.</p>
-          </div>
-          <div class="opp-card reveal-on-scroll">
-            <div class="opp-num">03</div>
-            <h4 class="opp-title" style="white-space: nowrap;">포트폴리오로 완성하는 강력한 무기</h4>
-            <p class="opp-desc">배운 기술은 직접 만든 결과물로 증명합니다. RAG 기반 MSP 운영 도우미, MLOps·AIOps 기반 관제 자동화 등 미니 프로젝트를 거쳐, 최종 프로젝트에서 '엔터프라이즈형 Cloud MSP 플랫폼'을 구축합니다. 설계부터 운영까지 경험한 프로젝트를 나만의 포트폴리오로 완성하세요.</p>
-          </div>
+
+        <div class="opp-card reveal-on-scroll">
+          <div class="opp-num">02</div>
+          <h4 class="opp-title">현업 최신 기술 스택 총망라</h4>
+          <p class="opp-desc">
+            클라우드 MSP 엔지니어의 기본인 Linux, Network, AWS부터 서비스 플랫폼 운영에 필요한 Docker, Kubernetes, Terraform(IaC), CI/CD까지. 기초 인프라와 배포·운영 기술을 체계적으로 연결해 현업에서 활용할 실무 역량을 쌓습니다.
+          </p>
+        </div>
+
+        <div class="opp-card reveal-on-scroll">
+          <div class="opp-num">03</div>
+          <h4 class="opp-title" style="white-space: nowrap;">포트폴리오로 완성하는 강력한 무기</h4>
+          <p class="opp-desc">
+            배운 기술은 직접 만든 결과물로 증명합니다. RAG 기반 MSP 운영 도우미, MLOps·AIOps 기반 관제 자동화 등 미니 프로젝트를 거쳐, 최종 프로젝트에서 '엔터프라이즈형 Cloud MSP 플랫폼'을 구축합니다. 설계부터 운영까지 경험한 프로젝트를 나만의 포트폴리오로 완성하세요.
+          </p>
         </div>
       </div>
     </div>
@@ -1482,81 +1742,97 @@
 
   <!-- 이 과정을 선택해야 할 5가지 이유 -->
   <section id="why-choose">
+    <div id="features"></div>
     <div class="container reveal-on-scroll">
       <div class="section-header">
-        <span class="section-tag">WHY CHOOSE US</span>
+        <span class="section-tag">5 KEY REASONS</span>
         <h2 class="section-title">이 과정을 선택해야 할 5가지 이유</h2>
         <p class="section-desc">클라우드와 AI를 함께 다루는 실무 역량, 지금 준비하세요.</p>
       </div>
 
       <div class="reasons-list">
         <div class="reason-card reveal-on-scroll">
-          <div class="reason-num">01</div>
-          <div class="reason-content">
-            <div class="reason-tagline">AI로 운영을 더 똑똑하게</div>
-            <h3 class="reason-title">대세는 AIOps(AI 운영 자동화)</h3>
-            <p class="reason-desc">단순 인프라 구축을 넘어, 연봉을 가르는 핵심 기술인 'AI 기반 클라우드 운영 고도화 및 자동화' 역량을 장착합니다.</p>
-            <div class="reason-tags">
-              <span class="reason-tag-pill">AWS</span>
-              <span class="reason-tag-pill">Python</span>
-              <span class="reason-tag-pill">Prometheus</span>
-            </div>
+          <div class="reason-meta">
+            <span class="reason-meta-bar"></span>
+            <span class="reason-category">01 / AIOPS</span>
+            <span class="reason-tagline">· AI로 운영을 더 똑똑하게</span>
+          </div>
+          <h3 class="reason-title">대세는 AIOps(AI 운영 자동화)</h3>
+          <p class="reason-desc">
+            단순 인프라 구축을 넘어, 연봉을 가르는 핵심 기술인 'AI 기반 클라우드 운영 고도화 및 자동화' 역량을 장착합니다.
+          </p>
+          <div class="reason-tags">
+            <span class="tech-pill">AWS</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Prometheus</span>
           </div>
         </div>
 
         <div class="reason-card reveal-on-scroll">
-          <div class="reason-num">02</div>
-          <div class="reason-content">
-            <div class="reason-tagline">기업 데이터를 서비스로</div>
-            <h3 class="reason-title">RAG & Vector DB 마스터</h3>
-            <p class="reason-desc">최근 IT 채용 우대사항 1순위! 생성형AI를 기업 내부 데이터와 결합하는 RAG 기반 서비스 구축 경험으로 포트폴리오의 차원이 달라집니다.</p>
-            <div class="reason-tags">
-              <span class="reason-tag-pill">RAG</span>
-              <span class="reason-tag-pill">Vector DB</span>
-              <span class="reason-tag-pill">FastAPI</span>
-            </div>
+          <div class="reason-meta">
+            <span class="reason-meta-bar"></span>
+            <span class="reason-category">02 / GENERATIVE AI</span>
+            <span class="reason-tagline">· 기업 데이터를 서비스로</span>
+          </div>
+          <h3 class="reason-title">RAG & Vector DB 마스터</h3>
+          <p class="reason-desc">
+            최근 IT 채용 우대사항 1순위! 생성형AI를 기업 내부 데이터와 결합하는 RAG 기반 서비스 구축 경험으로 포트폴리오의 차원이 달라집니다.
+          </p>
+          <div class="reason-tags">
+            <span class="tech-pill">RAG</span>
+            <span class="tech-pill">Vector DB</span>
+            <span class="tech-pill">FastAPI</span>
           </div>
         </div>
 
         <div class="reason-card reveal-on-scroll">
-          <div class="reason-num">03</div>
-          <div class="reason-content">
-            <div class="reason-tagline">구축부터 배포까지 한 번에</div>
-            <h3 class="reason-title">클라우드 네이티브 실무 올인원</h3>
-            <p class="reason-desc">요즘 DevOps 채용의 필수 요건인 Kubernetes, Terraform, CI/CD 등 클라우드 네이티브 핵심 기술을 실전 프로젝트로 섭렵합니다.</p>
-            <div class="reason-tags">
-              <span class="reason-tag-pill">Docker</span>
-              <span class="reason-tag-pill">K8s</span>
-              <span class="reason-tag-pill">Terraform</span>
-              <span class="reason-tag-pill">CI/CD</span>
-            </div>
+          <div class="reason-meta">
+            <span class="reason-meta-bar"></span>
+            <span class="reason-category">03 / DEVOPS</span>
+            <span class="reason-tagline">· 구축부터 배포까지 한 번에</span>
+          </div>
+          <h3 class="reason-title">클라우드 네이티브 실무 올인원</h3>
+          <p class="reason-desc">
+            요즘 DevOps 채용의 필수 요건인 Kubernetes, Terraform, CI/CD 등 클라우드 네이티브 핵심 기술을 실전 프로젝트로 섭렵합니다.
+          </p>
+          <div class="reason-tags">
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">K8s</span>
+            <span class="tech-pill">Terraform</span>
+            <span class="tech-pill">CI/CD</span>
           </div>
         </div>
 
         <div class="reason-card reveal-on-scroll">
-          <div class="reason-num">04</div>
-          <div class="reason-content">
-            <div class="reason-tagline">기업이 원하는 실무를 배우다</div>
-            <h3 class="reason-title">MSP 시장 1위 기업 메가존</h3>
-            <p class="reason-desc">기업들의 클라우드 도입으로 가장 채용이 활발한 MSP 시장! 업계 1위 메가존얼라이언스의 맞춤 커리큘럼으로 즉시 투입형 인재가 됩니다.</p>
-            <div class="reason-tags">
-              <span class="reason-tag-pill">기업 수요 기반</span>
-              <span class="reason-tag-pill">실무 프로젝트</span>
-            </div>
+          <div class="reason-meta">
+            <span class="reason-meta-bar"></span>
+            <span class="reason-category">04 / MSP CAREER</span>
+            <span class="reason-tagline">· 기업이 원하는 실무를 배우다</span>
+          </div>
+          <h3 class="reason-title">MSP 시장 1위 기업 메가존</h3>
+          <p class="reason-desc">
+            기업들의 클라우드 도입으로 가장 채용이 활발한 MSP 시장! 업계 1위 메가존얼라이언스의 맞춤 커리큘럼으로 즉시 투입형 인재가 됩니다.
+          </p>
+          <div class="reason-tags">
+            <span class="tech-pill">기업 수요 기반</span>
+            <span class="tech-pill">실무 프로젝트</span>
           </div>
         </div>
 
         <div class="reason-card reveal-on-scroll">
-          <div class="reason-num">05</div>
-          <div class="reason-content">
-            <div class="reason-tagline">AI와 함께 일하는 엔지니어</div>
-            <h3 class="reason-title">AI 네이티브 엔지니어로 레벨업</h3>
-            <p class="reason-desc">Claude 등 AI 코딩 어시스턴트를 적극 활용해, 남들보다 압도적으로 빠르고 효율적으로 일하는 트렌디한 개발자로 거듭나세요.</p>
-            <div class="reason-tags">
-              <span class="reason-tag-pill">Claude</span>
-              <span class="reason-tag-pill">AI 코딩</span>
-              <span class="reason-tag-pill">업무 자동화</span>
-            </div>
+          <div class="reason-meta">
+            <span class="reason-meta-bar"></span>
+            <span class="reason-category">05 / AI NATIVE</span>
+            <span class="reason-tagline">· AI와 함께 일하는 엔지니어</span>
+          </div>
+          <h3 class="reason-title">AI 네이티브 엔지니어로 레벨업</h3>
+          <p class="reason-desc">
+            Claude 등 AI 코딩 어시스턴트를 적극 활용해, 남들보다 압도적으로 빠르고 효율적으로 일하는 트렌디한 개발자로 거듭나세요.
+          </p>
+          <div class="reason-tags">
+            <span class="tech-pill">Claude</span>
+            <span class="tech-pill">AI 코딩</span>
+            <span class="tech-pill">업무 자동화</span>
           </div>
         </div>
       </div>
@@ -1564,19 +1840,18 @@
   </section>
 
   <!-- 주요 활용 도구 및 기술 스택 -->
-  <section id="tech-stack" style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <section id="tech-stack" style="border-top: 1px solid var(--border-color);">
     <div class="container reveal-on-scroll">
       <div class="section-header">
         <span class="section-mono-tag">// 실무에서 사용하는 기술</span>
         <h2 class="section-title">주요 활용 도구 및 기술 스택</h2>
-        <p class="section-desc">현업 클라우드 MSP 기업에서 실제로 사용하는 최신 기술셋을 직접 다룹니다.</p>
       </div>
 
       <div class="tech-stack-list">
         <div class="tech-stack-card reveal-on-scroll">
           <div class="tech-cat-header">
-            <div class="tech-cat-icon">🧠</div>
-            <span class="tech-cat-name">AI & LLM</span>
+            <div class="tech-cat-icon">🤖</div>
+            <h3 class="tech-cat-name">AI & LLM</h3>
           </div>
           <div class="tech-pills-wrap">
             <span class="tech-pill-dark">Claude</span>
@@ -1588,7 +1863,7 @@
         <div class="tech-stack-card reveal-on-scroll">
           <div class="tech-cat-header">
             <div class="tech-cat-icon">☁️</div>
-            <span class="tech-cat-name">Cloud & Infra</span>
+            <h3 class="tech-cat-name">Cloud & Infra</h3>
           </div>
           <div class="tech-pills-wrap">
             <span class="tech-pill-dark">AWS</span>
@@ -1599,7 +1874,7 @@
         <div class="tech-stack-card reveal-on-scroll">
           <div class="tech-cat-header">
             <div class="tech-cat-icon">📦</div>
-            <span class="tech-cat-name">DevOps / IaC</span>
+            <h3 class="tech-cat-name">DevOps / IaC</h3>
           </div>
           <div class="tech-pills-wrap">
             <span class="tech-pill-dark">Docker</span>
@@ -1612,7 +1887,7 @@
         <div class="tech-stack-card reveal-on-scroll">
           <div class="tech-cat-header">
             <div class="tech-cat-icon">🗄️</div>
-            <span class="tech-cat-name">DB & Data</span>
+            <h3 class="tech-cat-name">DB & Data</h3>
           </div>
           <div class="tech-pills-wrap">
             <span class="tech-pill-dark">PostgreSQL</span>
@@ -1624,7 +1899,7 @@
         <div class="tech-stack-card reveal-on-scroll">
           <div class="tech-cat-header">
             <div class="tech-cat-icon">📊</div>
-            <span class="tech-cat-name">Dev & Monitoring</span>
+            <h3 class="tech-cat-name">Dev & Monitoring</h3>
           </div>
           <div class="tech-pills-wrap">
             <span class="tech-pill-dark">Python</span>
@@ -1633,66 +1908,64 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 성장 로드맵 -->
-      <div style="margin-top: 60px;">
-        <div class="section-header" style="margin-bottom: 30px;">
-          <span class="section-mono-tag">// 기초부터 실전까지</span>
-          <h3 class="section-title" style="font-size: 26px;">AI 클라우드 전문가 성장 로드맵</h3>
-          <p class="section-desc">기초부터 실전 포트폴리오 완성까지, 체계적인 4단계 스텝.</p>
+  <!-- AI 클라우드 전문가 성장 로드맵 -->
+  <section id="growth-roadmap" style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container reveal-on-scroll">
+      <div class="section-header">
+        <span class="section-mono-tag">// 기초부터 실전까지</span>
+        <h2 class="section-title">AI 클라우드 전문가 성장 로드맵</h2>
+        <p class="section-desc">기초부터 실전 포트폴리오 완성까지, 체계적인 4단계 스텝.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card reveal-on-scroll">
+          <span class="roadmap-step-pill">STEP 01</span>
+          <h3 class="roadmap-title">AI & 인프라 기초</h3>
+          <p class="roadmap-desc">생성형 AI 활용, Linux / Shell, AWS 네트워크(VPC) 설계 및 구축 실무.</p>
         </div>
-        <div class="roadmap-list">
-          <div class="roadmap-card reveal-on-scroll">
-            <div class="roadmap-num">01</div>
-            <div>
-              <h4 class="roadmap-title">AI & 인프라 기초</h4>
-              <p class="roadmap-desc">생성형 AI 활용, Linux / Shell, AWS 네트워크(VPC) 설계 및 구축 실무.</p>
-            </div>
-          </div>
-          <div class="roadmap-card reveal-on-scroll">
-            <div class="roadmap-num">02</div>
-            <div>
-              <h4 class="roadmap-title">서비스 개발 & 데이터</h4>
-              <p class="roadmap-desc">Python 운영 자동화, RDBMS, Vector DB 및 RAG 기반 운영 API 연동.</p>
-            </div>
-          </div>
-          <div class="roadmap-card reveal-on-scroll">
-            <div class="roadmap-num">03</div>
-            <div>
-              <h4 class="roadmap-title">플랫폼 운영 & 배포</h4>
-              <p class="roadmap-desc">Docker, Kubernetes (K8s) 운영, Terraform (IaC), 서비스 CI/CD 파이프라인.</p>
-            </div>
-          </div>
-          <div class="roadmap-card reveal-on-scroll">
-            <div class="roadmap-num">04</div>
-            <div>
-              <h4 class="roadmap-title">MLOps & 프로젝트</h4>
-              <p class="roadmap-desc">AIOps 관제 자동화, RAG 도우미 및 Enterprise AI Cloud 통합 플랫폼 완성.</p>
-            </div>
-          </div>
+
+        <div class="roadmap-card reveal-on-scroll">
+          <span class="roadmap-step-pill">STEP 02</span>
+          <h3 class="roadmap-title">서비스 개발 & 데이터</h3>
+          <p class="roadmap-desc">Python 운영 자동화, RDBMS, Vector DB 및 RAG 기반 운영 API 연동.</p>
+        </div>
+
+        <div class="roadmap-card reveal-on-scroll">
+          <span class="roadmap-step-pill">STEP 03</span>
+          <h3 class="roadmap-title">플랫폼 운영 & 배포</h3>
+          <p class="roadmap-desc">Docker, Kubernetes (K8s) 운영, Terraform (IaC), 서비스 CI/CD 파이프라인.</p>
+        </div>
+
+        <div class="roadmap-card reveal-on-scroll">
+          <span class="roadmap-step-pill">STEP 04</span>
+          <h3 class="roadmap-title">MLOps & 프로젝트</h3>
+          <p class="roadmap-desc">AIOps 관제 자동화, RAG 도우미 및 Enterprise AI Cloud 통합 플랫폼 완성.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 상세 커리큘럼 섹션 -->
+  <!-- 상세 커리큘럼 -->
   <section id="curriculum">
     <div class="container reveal-on-scroll">
       <div class="section-header">
         <span class="section-tag">CURRICULUM</span>
         <h2 class="section-title">실무 중심 5단계 커리큘럼</h2>
-        <p class="section-desc">인프라 기초부터 AWS 심화, K8s, AIOps, 그리고 최종 플랫폼 프로젝트까지.</p>
+        <p class="section-desc">비전공자도 탄탄한 기초부터 차근차근 올라갈 수 있도록 구성된 올인원 로드맵</p>
       </div>
 
       <div class="curriculum-tabs">
-        <button class="tab-btn active" onclick="switchTab(0)">STEP 01 (1~4주차)</button>
-        <button class="tab-btn" onclick="switchTab(1)">STEP 02 (5~10주차)</button>
-        <button class="tab-btn" onclick="switchTab(2)">STEP 03 (11~16주차)</button>
-        <button class="tab-btn" onclick="switchTab(3)">STEP 04 (17~20주차)</button>
-        <button class="tab-btn" onclick="switchTab(4)">STEP 05 (21~25주차)</button>
+        <button class="curr-tab-btn active" onclick="switchTab(0)">STEP 01. 인프라 기초</button>
+        <button class="curr-tab-btn" onclick="switchTab(1)">STEP 02. AWS & IaC</button>
+        <button class="curr-tab-btn" onclick="switchTab(2)">STEP 03. K8s & DevOps</button>
+        <button class="curr-tab-btn" onclick="switchTab(3)">STEP 04. AI & AIOps</button>
+        <button class="curr-tab-btn" onclick="switchTab(4)">STEP 05. 파이널 프로젝트</button>
       </div>
 
-      <div class="curriculum-box">
+      <div class="curriculum-content-wrap">
         <div class="curriculum-content" id="tab-content-0">
           <div class="step-header">
             <span class="step-pill">STEP 01</span>
@@ -1764,7 +2037,7 @@
             <li class="topic-item">RAG 기반 MSP 운영 도우미 및 MLOps·AIOps 관제 자동화 플랫폼 구현</li>
             <li class="topic-item">메가존클라우드 현직 아키텍트의 실전 코드 리뷰 & 아키텍처 컨설팅</li>
             <li class="topic-item">실제 클라우드 환경 장애 대응 시나리오 훈련 및 보안 취약점 점검</li>
-            <li class="topic-item">최종 프로젝트 데모데이, 포트폴리오 전시 및 메가존 채용 인터뷰</li>
+            <li class="topic-item">최종 프로젝트 데모데이, 실전 포트폴리오 완성 및 현직자 프로젝트 피드백</li>
           </ul>
         </div>
       </div>
@@ -1786,13 +2059,11 @@
               </tr>
             </thead>
             <tbody>
-              <!-- 공통역량 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="1">공통역량</td>
                 <td class="syllabus-subj-td">생성형 AI 활용과 Cloud MSP 개발환경</td>
                 <td class="syllabus-hour-td">28h</td>
               </tr>
-              <!-- 인프라기초 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="4">인프라기초</td>
                 <td class="syllabus-subj-td">클라우드 운영을 위한 Linux · Shell 자동화</td>
@@ -1810,7 +2081,6 @@
                 <td class="syllabus-subj-td">Cloud 운영 고도화 : 보안 · 관제 · 비용최적화</td>
                 <td class="syllabus-hour-td">42h</td>
               </tr>
-              <!-- 서비스개발 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="3">서비스개발</td>
                 <td class="syllabus-subj-td">Python 기반 Cloud 운영자동화</td>
@@ -1824,7 +2094,6 @@
                 <td class="syllabus-subj-td">RAG 기반 운영도우미 구현과 API 연동</td>
                 <td class="syllabus-hour-td">42h</td>
               </tr>
-              <!-- 플랫폼운영 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="5">플랫폼운영</td>
                 <td class="syllabus-subj-td">컨테이너 기반 애플리케이션 운영</td>
@@ -1846,7 +2115,6 @@
                 <td class="syllabus-subj-td">MLOps · AIOps 기반 관제 자동화</td>
                 <td class="syllabus-hour-td">63h</td>
               </tr>
-              <!-- 프로젝트 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="3">프로젝트</td>
                 <td class="syllabus-subj-td">미니프로젝트 1 : Cloud 랜딩존 및 운영자동화</td>
@@ -1860,7 +2128,6 @@
                 <td class="syllabus-subj-td">파이널프로젝트 : Enterprise AI Cloud MSP Platform</td>
                 <td class="syllabus-hour-td">147h</td>
               </tr>
-              <!-- 특강 -->
               <tr>
                 <td class="syllabus-cat-td" rowspan="2">특강</td>
                 <td class="syllabus-subj-td">창업교육특강</td>
@@ -1871,14 +2138,6 @@
                 <td class="syllabus-hour-td">4h</td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr class="syllabus-footer-row">
-                <td colspan="2" style="font-weight: 800; color: #ffffff; text-align: right;">총 교육시간</td>
-                <td style="text-align: right;">
-                  <span class="total-badge">805h</span>
-                </td>
-              </tr>
-            </tfoot>
           </table>
         </div>
       </div>
@@ -1886,14 +2145,14 @@
   </section>
 
   <!-- 실전 프로젝트 상세 보기 -->
-  <section id="projects" style="border-top: 1px solid var(--border-color);">
+  <section id="projects" style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container reveal-on-scroll">
       <div class="section-header">
         <span class="section-mono-tag">// 포트폴리오가 되는</span>
         <h2 class="section-title">실전 프로젝트 상세 보기</h2>
       </div>
 
-      <div class="projects-list">
+      <div class="projects-3grid">
         <div class="project-card reveal-on-scroll">
           <span class="project-badge-tag">미니프로젝트 1 · 56h</span>
           <h3 class="project-card-title">Cloud 랜딩존 & 운영자동화</h3>
@@ -1966,23 +2225,25 @@
         <h2 class="section-title">오직 수강생만을 위한<br>압도적인 특별 혜택</h2>
       </div>
 
-      <!-- Green Gradient Highlights Box with Checkmarks -->
       <div class="benefits-highlight-card reveal-on-scroll">
         <div class="benefits-check-item">
           <span>✓</span>
-          <span>교육비 전액 무료</span>
+          <span>교육비 전액 무료 (서울시 지원 100%)</span>
         </div>
         <div class="benefits-check-item">
           <span>✓</span>
-          <span>생성형 AI (Claude 등) 구독 지원</span>
+          <span>서울시 지원 (국민내일배움카드 사용X)</span>
         </div>
         <div class="benefits-check-item">
           <span>✓</span>
           <span>AWS 실습비 전폭 지원</span>
         </div>
+        <div class="benefits-check-item">
+          <span>✓</span>
+          <span>생성형 AI (Claude 등) 구독 지원</span>
+        </div>
       </div>
 
-      <!-- 6 Benefits Cards -->
       <div class="benefits-6grid">
         <div class="benefit-item-card reveal-on-scroll">
           <div class="benefit-num">01</div>
@@ -2046,7 +2307,7 @@
               <span>온라인 사전교육 콘텐츠 제공</span>
               <span class="benefit-tag-pill">사전학습 제공</span>
             </h3>
-            <p class="benefit-item-desc" style="white-space: nowrap;">개강 전 수강 예정자 대상으로 온라인 사전교육 콘텐츠 제공</p>
+            <p class="benefit-item-desc">개강 전 수강 예정자 대상으로 온라인 사전교육 콘텐츠<br />제공</p>
           </div>
         </div>
       </div>
@@ -2071,7 +2332,7 @@
           </div>
           <div class="review-body">
             <p class="review-quote">"클라우드나 MSA에 대해 아는 게 별로 없지만, 지금은 배운 것을 바탕으로 구축할 수 있을 정도로 엄청나게 성장할 수 있었습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
 
@@ -2083,7 +2344,7 @@
           </div>
           <div class="review-body">
             <p class="review-quote">"다양한 최신 기술을 직접 경험할 수 있어서 무척 만족스러웠고, 취업을 위한 시스템도 탄탄하게 구축되어 있어 큰 도움이 되었습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
 
@@ -2096,7 +2357,7 @@
           <div class="review-body">
             <p class="review-quote">"전반적인 교육 내용이 모두 도움되었지만, 쿠버네티스와 AWS 서비스를 경험해본 것이 가장 도움이 되었다고 생각합니다. 특히 AWS는 유료 서비스인 만큼 취준생이 경험하기에 허들이 높다고 생각하는데, 이번 과정을 통해 AWS의 다양한 서비스를 경험해보고 직접 인프라를 구성해 본 것이 매우 유익했습니다."</p>
             <p class="review-quote">"더불어, 팀원들과 3~4주간 진행된 프로젝트가 정말 큰 도움이 되었습니다. 교육에서 배운 내용을 실제로 적용시키며 부족한 부분을 꽉꽉 채워나가서 좋았습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
 
@@ -2109,7 +2370,7 @@
           <div class="review-body">
             <p class="review-quote">"스스로 하고자 하는 의지만 있다면 짧은 시간에 빠르게 성장할 수 있는 완벽한 과정이었습니다. 어려운 개념도 이해될 때까지 설명해주시는 강사님과 실무적인 시각에서 날카로운 조언을 해주시는 멘토님 덕분에 6개월 동안 많은 부분에서 성장할 수 있었습니다."</p>
             <p class="review-quote">"운영진분들께서도 수강생들이 더 좋은 환경에서 교육을 받을 수 있도록 세심하게 신경 써주시고, 문의사항도 빠르게 처리해 주셔서 마지막까지 든든하고 좋은 분위기에서 수강할 수 있었습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
 
@@ -2121,7 +2382,7 @@
           </div>
           <div class="review-body">
             <p class="review-quote">"학부 때는 개발 위주의 커리큘럼이라 네트워크, 인프라 지식을 쌓기 힘들었습니다. 이 과정을 수료한 이후 직무 방향성에 대해 확신을 가질 수 있었고, 원하던 지식 수준 이상으로 많이 배워 적극 추천하고 싶습니다. 타 교육들과 다르게 철저히 실무 중심으로 잘 설명해 주셔서 단기간에 훌쩍 성장한 것 같습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
 
@@ -2133,7 +2394,7 @@
           </div>
           <div class="review-body">
             <p class="review-quote">"현직자 멘토링으로 최신 기술 트렌드에 대해 생생하게 배울 수 있어서 유익했고, 강사님이 학생들을 한 명 한 명 적극적으로 도와주셔서 정말 좋았습니다."</p>
-            <div class="review-footer-track">Enterprise AI Cloud MSP 정예 과정 수료</div>
+            <div class="review-footer-track">Enterprise AI Cloud MSP 과정 수료</div>
           </div>
         </div>
       </div>
@@ -2180,34 +2441,27 @@
   </section>
 
   <!-- 캠퍼스 안내 섹션 -->
-  <section style="background-color: #070b13; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <section style="padding: 20px 0 60px;">
     <div class="container reveal-on-scroll">
       <div class="campus-box">
         <div class="campus-inner">
           <div>
-            <span class="section-tag">CAMPUS LOCATION</span>
-            <h3 class="section-title" style="font-size: 28px; margin-top: 8px;">청년취업사관학교 영등포 캠퍼스</h3>
-            <p class="section-desc" style="margin-bottom: 24px;">
+            <span style="color: #38bdf8; font-family: monospace; font-weight: 800; font-size: 13px; letter-spacing: 1px;">CAMPUS LOCATION</span>
+            <h3 style="font-size: 26px; font-weight: 900; margin: 8px 0 16px;">청년취업사관학교 영등포 캠퍼스</h3>
+            <p style="color: #94a3b8; font-size: 14.5px; margin-bottom: 20px; line-height: 1.6;">
               쾌적한 학습 라운지, 고사양 듀얼 모니터 실습실, 세미나룸, 스터디 공간이 완비되어 있습니다.
             </p>
-            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14.5px;">
-              <div style="display: flex; gap: 10px;">
-                <span style="color: #38bdf8; font-weight: 800;">📍 주소:</span>
-                <span style="color: #e2e8f0;">서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층</span>
-              </div>
-              <div style="display: flex; gap: 10px;">
-                <span style="color: #38bdf8; font-weight: 800;">🚇 교통:</span>
-                <span style="color: #e2e8f0;">지하철 2호선 문래역 1번/7번 출구 도보 5분</span>
-              </div>
+            <div style="font-size: 14px; color: #cbd5e1; line-height: 1.8;">
+              <p>📍 <strong>주소:</strong> 서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층</p>
+              <p>🚇 <strong>교통:</strong> 지하철 2호선 문래역 1번/7번 출구 도보 5분</p>
             </div>
           </div>
-          <div style="text-align: center; background: #090d16; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color);">
-            <div style="font-size: 40px; margin-bottom: 10px;">🎓</div>
-            <h4 style="font-size: 18px; font-weight: 800; color: white; margin-bottom: 6px;">SeSAC 영등포 러닝스페이스</h4>
+          <div style="text-align: center; background: rgba(0,0,0,0.3); padding: 32px; border-radius: 20px; border: 1px solid var(--border-color);">
+            <div style="font-size: 36px; margin-bottom: 12px;">🏫</div>
+            <h4 style="font-size: 18px; font-weight: 800; margin-bottom: 6px; color: #ffffff;">SeSAC 영등포 러닝스페이스</h4>
             <p style="font-size: 13px; color: #94a3b8; margin-bottom: 20px;">실무 몰입 환경을 갖춘 서울시 대표 디지털 청년 교육 공간</p>
-            <a href="https://naver.me/GwflJ8WC" target="_blank" rel="noopener noreferrer" class="nav-cta-btn" style="display: inline-flex;">
-              <span>과정 상담신청하기</span>
-              <span>→</span>
+            <a href="https://naver.me/GwflJ8WC" target="_blank" rel="noopener noreferrer" style="background: #10b981; color: #090d16; padding: 12px 26px; border-radius: 10px; font-weight: 800; font-size: 14px; display: inline-block; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
+              과정 상담신청하기 →
             </a>
           </div>
         </div>
@@ -2215,17 +2469,17 @@
     </div>
   </section>
 
-  <!-- FAQ 자주 묻는 질문 -->
-  <section id="faq">
+  <!-- 자주 묻는 질문 FAQ -->
+  <section id="faq" style="background-color: #070b13; border-top: 1px solid var(--border-color);">
     <div class="container reveal-on-scroll">
       <div class="section-header">
         <span class="section-tag">FAQ</span>
         <h2 class="section-title">자주 묻는 질문</h2>
-        <p class="section-desc">지원 전 궁금하신 점을 빠르게 해결해 드립니다.</p>
+        <p class="section-desc">지원자분들이 가장 많이 질문해주신 내용을 모았습니다.</p>
       </div>
 
       <div class="faq-container">
-        <div class="faq-item active">
+        <div class="faq-item active reveal-on-scroll">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>비전공자나 코딩을 처음 접하는 초보자도 지원할 수 있나요?</span>
             <span class="faq-icon">+</span>
@@ -2235,49 +2489,39 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item reveal-on-scroll">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>교육비가 정말 전액 무료인가요? 추가 비용이 없나요?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            네, 서울시와 서울경제진흥원(SBA)에서 교육비 전액을 지원하는 국비 무료 과정입니다. 출석과 성실한 참여를 독려하기 위해 소정의 예치금(20만원)이 있으며, 수료 기준(출석률 80% 이상) 충족 시 100% 전액 환급됩니다. 교재 및 실습 인프라도 전액 무상 제공됩니다.
+            네, 서울시와 서울경제진흥원(SBA)에서 교육비 전액을 지원하는 국비 무료 과정입니다. 출석과 성실한 참여를 독려하기 위해 소정의 예치금(20만원)이 있으며, 수료 기준(출석률 80% 이상) 충족 시 100% 전액 환급됩니다.
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item reveal-on-scroll">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>메가존클라우드 취업 연계는 구체적으로 어떻게 진행되나요?</span>
+            <span>수료 후 포트폴리오와 실무 역량은 어떻게 활용되나요?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            메가존클라우드의 인재 육성 프로그램인 MTP(Megazone TalentBridge Program)와 연계되어, 수료생을 대상으로 메가존클라우드 및 5,000여 개 얼라이언스 파트너사의 신입 채용 기회를 연결합니다. 우수 프로젝트 팀은 데모데이 현장에서 기업 인사담당자 및 테크 리드와 다이렉트 면접을 진행합니다.
+            본 과정을 통해 구축한 엔터프라이즈급 Cloud MSP 플랫폼과 AIOps 자동화 프로젝트 결과물은 실제 클라우드 엔지니어 및 DevOps 포지션 지원 시 가장 강력한 실무 포트폴리오로 활용됩니다. 메가존클라우드 현직자의 코드 리뷰와 피드백이 반영되어 기업 실무에서 즉시 통하는 경쟁력을 갖추게 됩니다.
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item reveal-on-scroll">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>수업은 온라인인가요, 오프라인 대면 수업인가요?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            본 과정은 '오프라인 전일제 대면 교육'으로 진행됩니다. 청년취업사관학교 새싹 영등포 캠퍼스(문래역/영등포구청역 인근)에서 월~금 09:00~18:00에 실습 위주로 진행되어 집중도 높은 학습과 동료들과의 협업이 가능합니다.
+            본 과정은 '오프라인 전일제 대면 교육'으로 진행됩니다. 청년취업사관학교 새싹 영등포 캠퍼스(문래역 도보 5분)에서 월~금 09:00~18:00에 실습 위주로 진행되어 집중도 높은 학습과 동료들과의 협업이 가능합니다.
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item reveal-on-scroll">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>선발을 위한 레벨테스트와 면접은 어떻게 준비해야 하나요?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            레벨테스트는 높은 수준의 코딩 지식을 묻는 것이 아니며, 기본적인 논리적 사고력과 문제 해결력, 학습 의지를 확인하는 수준입니다. 면접에서는 본 과정에 6개월간 몰입할 수 있는지, 개발자로 취업하고자 하는 목표가 뚜렷한지를 중점적으로 평가합니다.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>개인 노트북이 필요한가요?</span>
+            <span>개인 노트북이 반드시 필요한가요?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
@@ -2285,29 +2529,47 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 하단 CTA 배너 -->
-      <div class="final-cta reveal-on-scroll">
-        <span class="final-cta-badge">FAST-TRACK CAREER</span>
+  <!-- 하단 최종 상담신청 배너 -->
+  <section style="padding: 20px 0 60px;">
+    <div class="container reveal-on-scroll">
+      <div class="final-cta">
+        <span class="final-cta-badge">신청 마감 임박</span>
         <h2>지금, 당신의 개발자 커리어를<br>메가존클라우드와 함께 시작하세요!</h2>
         <p>
-          교육비 100% 무료 지원부터 국내 1위 클라우드 MSP 기업의 실전 채용 연계까지,<br />
-          차세대 Enterprise AI Cloud 엔지니어로 성장할 30인의 주인공을 기다립니다.
+          교육비 100% 무료 지원부터 국내 1위 클라우드 MSP 기업과 함께하는 실전 역량 강화까지,<br />
+          차세대 Enterprise AI Cloud 엔지니어로 성장할 24인의 주인공을 기다립니다.
         </p>
         <a href="https://naver.me/GwflJ8WC" target="_blank" rel="noopener noreferrer" class="btn-primary-lg">
-          <span>🚀 과정 상담신청 바로가기</span>
+          <span>지금 바로 상담신청하기</span>
           <span>→</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 하단 고정 액션바 -->
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div style="font-weight: 800; font-size: 15px; color: #f8fafc; margin-bottom: 8px;">청년취업사관학교 새싹(SeSAC) 영등포 캠퍼스 x 메가존클라우드</div>
+        <p>교육장소: 서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층</p>
+        <p style="color: #cbd5e1; margin-top: 4px;">홈페이지담당자: 최민성</p>
+      </div>
+      <div>
+        <p>© Seoul Software ACademy (SeSAC) & MEGAZONECLOUD Corp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 하단 고정 상담신청 바 -->
   <div class="sticky-bar">
     <div class="sticky-content">
-      <div>
-        <div class="sticky-title">청년취업사관학교 새싹(SeSAC) x 메가존클라우드</div>
-        <div class="sticky-sub">정예 30명 선발 | 메가존클라우드 채용연계 | 영등포 캠퍼스</div>
+      <div class="sticky-info">
+        <div class="sticky-title">청년취업사관학교 SeSAC x 메가존클라우드 교육과정</div>
+        <div class="sticky-sub">전액 무료 국비지원 | 24명 선발 | 영등포 캠퍼스</div>
       </div>
       <a href="https://naver.me/GwflJ8WC" target="_blank" rel="noopener noreferrer" class="sticky-btn-apply">
         <span>지금 바로 상담신청하기</span>
@@ -2316,70 +2578,56 @@
     </div>
   </div>
 
-  <!-- 푸터 -->
-  <footer>
-    <div class="container footer-content">
-      <div>
-        <div style="font-weight: 800; color: white; margin-bottom: 8px;">
-          청년취업사관학교 새싹(SeSAC) x 메가존클라우드 채용연계과정
-        </div>
-        <p style="margin-bottom: 4px;">운영기관: 서울시, 서울경제진흥원(SBA) 청년취업사관학교 새싹(SeSAC)</p>
-        <p style="margin-bottom: 4px;">교육 파트너: 메가존클라우드(주)</p>
-        <p>캠퍼스: 서울특별시 영등포구 문래로 164 영등포구 청년취업사관학교 2층</p>
-      </div>
-      <div style="text-align: right;">
-        <p style="color: #94a3b8; font-weight: 600; margin-bottom: 6px;">홈페이지담당자: 최민성</p>
-        <p>© 2026 SeSAC x MegazoneCloud. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
+  <!-- 자바스크립트 -->
   <script>
-    // Tab switching logic
-    function switchTab(index) {
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach((btn, i) => {
-        if (i === index) {
+    // 스크롤 올리고 내릴 때마다 나타나고 사라지는 애니메이션 (IntersectionObserver)
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      scrollObserver.observe(el);
+    });
+
+    // 커리큘럼 탭 전환 함수
+    function switchTab(stepIndex) {
+      const tabButtons = document.querySelectorAll('.curr-tab-btn');
+      tabButtons.forEach((btn, idx) => {
+        if (idx === stepIndex) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
         }
       });
-      for (let i = 0; i < 5; i++) {
+
+      for (let i = 0; i <= 4; i++) {
         const content = document.getElementById('tab-content-' + i);
         if (content) {
-          content.style.display = (i === index) ? 'block' : 'none';
+          content.style.display = (i === stepIndex) ? 'block' : 'none';
         }
       }
     }
 
-    // FAQ Accordion logic
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const isActive = item.classList.contains('active');
+    // FAQ 아코디언 토글 함수
+    function toggleFaq(buttonElement) {
+      const item = buttonElement.parentElement;
+      const wasActive = item.classList.contains('active');
       document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-      if (!isActive) {
+      if (!wasActive) {
         item.classList.add('active');
       }
     }
-
-    // Scroll reveal animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
-    });
   </script>
 </body>
 </html>
